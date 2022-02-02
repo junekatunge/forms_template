@@ -1,5 +1,4 @@
 from http.client import HTTPResponse
-import re
 from django.shortcuts import render
 #from django.http import HttpResponse #for the view
 from .forms import ContactForm, SnippetForm
@@ -18,9 +17,9 @@ def contact(request):
           name = form.cleaned_data['name']
           email = form.cleaned_data['email']
 
-          print(name, email)
-
-    form = ContactForm()
+          print(name)
+    else:
+        form = ContactForm()
     return render(request,'form.html',{'form':form})#pass a form
 
 def snippet_detail(request):
